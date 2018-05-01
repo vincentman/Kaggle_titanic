@@ -1,5 +1,6 @@
 import pandas as pd
 
+
 def get_clean_data(x):
     print('Before cleaning data, the number of column value is NaN = ', x.isnull().sum())
 
@@ -37,7 +38,36 @@ def get_clean_data(x):
     # encode 'Embarked' as digit
     # x['Embarked'] = x['Embarked'].astype('category').cat.codes
     # one-hot encoding
-    x = pd.get_dummies(data=x,columns=['Embarked'])
+    x = pd.get_dummies(data=x, columns=['Embarked'])
     x['Sex'] = x['Sex'].map({'female': 0, 'male': 1}).astype(int)
 
     return x
+
+
+def get_feature_importances(column_names, x_train, y_train):
+    from sklearn.ensemble import RandomForestClassifier
+    import numpy as np
+    import matplotlib.pyplot as plt
+    forest = RandomForestClassifier(n_estimators=10000,
+                                    random_state=0,
+                                    n_jobs=-1)
+    forest.fit(x_train, y_train)
+    importances = forest.feature_importances_
+    indices = np.argsort(importances)[::-1]
+
+    for f in range(x_train.shape[1]):
+        print("%2d) %-*s %f" % (f + 1, 30,
+                                column_names[f],
+                                importances[indices[f]]))
+
+    # plt.title('Feature Importances')
+    # plt.bar(range(x_train.shape[1]),
+    #         importances[indices],
+    #         color='lightblue',
+    #         align='center')
+    #
+    # plt.xticks(range(x_train.shape[1]), x_train, rotation=90)
+    # plt.xlim([-1, x_train.shape[1]])
+    # plt.tight_layout()
+    # # plt.savefig('./figures/random_forest.png', dpi=300)
+    # plt.show()

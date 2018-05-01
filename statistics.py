@@ -137,3 +137,21 @@ def show_statistics(x):
     # df.plot(kind='bar', stacked=False, figsize=(15, 8))
 
     # plt.show()
+
+def show_train_history(train_history, epochs, train_acc, validation_acc, ylabel):
+    plt.plot(train_history.history[train_acc])
+    plt.plot(train_history.history[validation_acc])
+    final_epoch_train_acc = train_history.history[train_acc][epochs - 1]
+    final_epoch_validation_acc = train_history.history[validation_acc][epochs - 1]
+    plt.text(train_history.epoch[epochs-1], final_epoch_train_acc, 'train = {:.3f}'.format(final_epoch_train_acc))
+    plt.text(train_history.epoch[epochs-1], final_epoch_validation_acc-0.01, 'valid = {:.3f}'.format(final_epoch_validation_acc))
+    plt.title('Train History')
+    plt.ylabel(ylabel)
+    plt.xlabel('Epoch')
+    plt.xlim(xmax=epochs+1)
+    plt.legend(['train', 'validation'], loc='upper left')
+    fig = plt.gcf()
+    fig.savefig('./train_{}.png'.format(ylabel), dpi=300)
+    plt.clf()
+    # plt.show()
+    return final_epoch_train_acc, final_epoch_validation_acc
