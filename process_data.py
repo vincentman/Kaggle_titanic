@@ -1,15 +1,16 @@
 import pandas as pd
-
+import matplotlib.pyplot as plt
+import seaborn as sns
 
 def get_clean_data(x):
-    print('Before cleaning data, the number of column value is NaN = ', x.isnull().sum())
+    print('Before cleaning data, the number of column value is NaN =\n', x.isnull().sum())
 
     # 1. fill NaN for Age
     # print(x['Age'].isnull().sum())
-    # print(x[x['Age'].isnull()])
-    # 1.1. 將 Ms.,Miss. 缺值的 Age，以其中位數取代
-    mask = (x['Age'].isnull()) & ((x['Name'].str.contains('Ms.')) | (x['Name'].str.contains('Miss.')))
-    mask2 = ((x['Name'].str.contains('Ms.')) | (x['Name'].str.contains('Miss.')))
+    print(x[x['Age'].isnull()])
+    # 1.1. 將 Ms.,Miss., Mrs. 缺值的 Age，以其中位數取代
+    mask = (x['Age'].isnull()) & ((x['Name'].str.contains('Ms.')) | (x['Name'].str.contains('Miss.')) | (x['Name'].str.contains('Mrs.')))
+    mask2 = ((x['Name'].str.contains('Ms.')) | (x['Name'].str.contains('Miss.')) | (x['Name'].str.contains('Mrs.')))
     x.loc[mask, 'Age'] = x.loc[mask, 'Age'].fillna(x.loc[mask2, 'Age'].median())
     # 1.2. 將 Mr.,Sir.,Major 缺值的 Age，以其中位數取代
     mask = (x['Age'].isnull()) & (
@@ -27,19 +28,66 @@ def get_clean_data(x):
     x['Embarked'].fillna("C", inplace=True)
     # print("After filling, the number of 'Embarked' value is NaN = ", x['Embarked'].isnull().sum())
 
-    print('After cleaning data, the number of column value is NaN = ', x.isnull().sum())
+    # 3. combine SibSp and Parch into Family
+    x['Family'] = x['SibSp'] + x['Parch']
 
-    # 3. drop unrelated columns
-    x = x.drop(['Cabin', 'Name', 'Ticket', 'Survived', 'PassengerId'], axis=1)
+    # 4. Extract Name into Title1
+    x['Title1'] = x['Name'].str.split(", ", expand=True)[1]
+    x['Title1'] = x['Title1'].str.split(".", expand=True)[0]
+    # pd.crosstab(x['Title1'], x['Sex']).T.style.background_gradient(cmap='summer_r')
+    print('Average Age:\n', x.groupby(['Title1'])['Age'].mean())
+    print('=======================')
+    print('count:\n', x.groupby(['Title1', 'Sex'])['Name'].count())
+    print('=======================')
+    # pd.crosstab(x['Title1'], x['Survived']).T.style.background_gradient(cmap='summer_r')
+    print('count:\n', x.groupby(['Title1', 'Survived'])['Name'].count())
+    print('=======================')
+    print('Average Age:\n', x.groupby(['Title1', 'Pclass'])['Age'].mean())
+    print('=======================')
 
+    # 5. convert Title1 into Title2
+    x['Title2'] = x['Title1'].replace(
+        ['Mlle', 'Mme', 'Ms', 'Dr', 'Major', 'Lady', 'the Countess', 'Jonkheer', 'Col', 'Rev', 'Capt', 'Sir', 'Don',
+         'Dona'],
+        ['Miss', 'Mrs', 'Miss', 'Mr', 'Mr', 'Mrs', 'Mrs', 'Mr', 'Mr', 'Mr', 'Mr', 'Mr', 'Mr', 'Mrs'])
+    # pd.crosstab(x['Title2'], x['Sex']).T.style.background_gradient(cmap='summer_r')
+    print('count:\n', x.groupby(['Title2', 'Sex'])['Name'].count())
+    print('=======================')
+    # pd.crosstab(x['Title2'], x['Survived']).T.style.background_gradient(cmap='summer_r')
+    print('count:\n', x.groupby(['Title2', 'Survived'])['Name'].count())
+    print('=======================')
+    print('Average Age:\n', x.groupby(['Title2', 'Pclass'])['Age'].mean())
+    print('=======================')
+
+    # 6. Extract Ticket into Ticket_info
+    x['Ticket_info'] = x['Ticket'].apply(
+        lambda x: x.replace(".", "").replace("/", "").strip().split(' ')[0] if not x.isdigit() else 'X')
+    print('count:\n', x.groupby(['Ticket_info', 'Survived'])['Name'].count())
+    # sns.countplot(x['Ticket_info'], hue=x['Survived'])
+
+    # 7. Cabin：取出最前面的英文字母，缺值的用'NoCabin'來取代
+    x["Cabin"] = x['Cabin'].apply(lambda x: str(x)[0] if not pd.isnull(x) else 'NoCabin')
+    print('count:\n', x.groupby(['Cabin', 'Survived'])['Name'].count())
+    # sns.countplot(x['Cabin'], hue=x['Survived'])
+
+    #  drop unused columns
+    x = x.drop(['Name', 'Ticket', 'Survived', 'PassengerId', 'SibSp', 'Parch', 'Title1'], axis=1)
+
+    print('After cleaning data, the number of column value is NaN =\n', x.isnull().sum())
+    print('=======================')
     # print(x.describe())
     # print(x.describe(include=['O']))
 
-    # encode 'Embarked' as digit
-    # x['Embarked'] = x['Embarked'].astype('category').cat.codes
+    # encode data as digit
     # one-hot encoding
-    x = pd.get_dummies(data=x, columns=['Embarked'])
-    x['Sex'] = x['Sex'].map({'female': 0, 'male': 1}).astype(int)
+    # x = pd.get_dummies(data=x, columns=['Embarked'])
+    x['Embarked'] = x['Embarked'].astype('category').cat.codes
+    # x['Sex'] = x['Sex'].map({'female': 0, 'male': 1}).astype(int)
+    x['Sex'] = x['Sex'].astype('category').cat.codes
+    # x['Title1'] = x['Title1'].astype('category').cat.codes
+    x['Title2'] = x['Title2'].astype('category').cat.codes
+    x['Cabin'] = x['Cabin'].astype('category').cat.codes
+    x['Ticket_info'] = x['Ticket_info'].astype('category').cat.codes
 
     return x
 
