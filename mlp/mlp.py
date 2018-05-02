@@ -1,20 +1,16 @@
 import pandas as pd
-import math
 from sklearn.preprocessing import StandardScaler
-import process_data
-import statistics as stat
+from common import process_data, statistics as stat
 import time
 from keras.models import Sequential
 from keras.layers import Dense, Dropout, Activation, BatchNormalization
-from keras.regularizers import l1, l2, l1_l2
+from keras.regularizers import l2
+from common import load_csv
 
 # turn off warning: SettingWithCopyWarning
 pd.set_option('chained_assignment', None)
 
-pd_csv = pd.read_csv('train.csv')
-data_size = math.ceil(891 * 0.7)
-x = pd_csv.iloc[:data_size, :]
-y = pd_csv.Survived[:data_size]
+x, y = load_csv.load_data(True)
 # print('x.shape: ', x.shape)
 # print('x.columns => \n', x.columns.values)
 
@@ -22,8 +18,6 @@ x_train = process_data.get_clean_data(x)
 # print(x_train.describe())
 
 # x_train = process_data.get_feature_importances(x_train.columns.values, x_train.values, y.values)
-# x_train = x_train.get(['Pclass', 'Sex', 'Age', 'SibSp'])
-# x_train = x_train.get(['Pclass', 'Sex', 'Age', 'SibSp', 'Parch', 'Fare'])
 # stat.show_statistics(x)
 
 print('x_train.shape: ', x_train.shape)
@@ -50,7 +44,7 @@ model.add(Activation('relu'))
 model.add(Dense(units=30, kernel_regularizer=l2(0.01)))
 model.add(BatchNormalization())
 model.add(Activation('relu'))
-model.add(Dropout(0.25))
+model.add(Dropout(0.4))
 model.add(Dense(units=1, activation='sigmoid'))
 print(model.summary())
 
@@ -69,9 +63,14 @@ train_history = model.fit(x=x_train,
                           epochs=epochs,
                           shuffle=True,
                           batch_size=24, verbose=2)
-stat.show_train_history(train_history, epochs, 'acc', 'val_acc', 'accuracy')
-stat.show_train_history(train_history, epochs, 'loss', 'val_loss', 'loss')
+train_acc, validation_acc = stat.show_train_history(train_history, epochs, 'acc', 'val_acc', 'accuracy')
+train_loss, validation_loss = stat.show_train_history(train_history, epochs, 'loss', 'val_loss', 'loss')
 
 end = time.time()
 elapsed_train_time = 'elapsed training time: {} min, {} sec '.format(int((end - start) / 60), int((end - start) % 60))
 print(elapsed_train_time)
+
+with open('mlp_train_info.txt', 'w') as file:
+    file.write(elapsed_train_time+'\n')
+    file.write('train accuracy = {}, validation accuracy = {}\n'.format(train_acc, validation_acc))
+    file.write('train loss = {}, validation loss = {}\n'.format(train_loss, validation_loss))

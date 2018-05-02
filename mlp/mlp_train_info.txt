@@ -1,0 +1,3 @@
+elapsed training time: 0 min, 15 sec 
+train accuracy = 0.8270944717096135, validation accuracy = 0.7460317640077501
+train loss = 0.789218069079088, validation loss = 0.8645611660821098

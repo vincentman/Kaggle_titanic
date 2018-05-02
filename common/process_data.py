@@ -7,7 +7,7 @@ def get_clean_data(x):
 
     # 1. fill NaN for Age
     # print(x['Age'].isnull().sum())
-    print(x[x['Age'].isnull()])
+    # print(x[x['Age'].isnull()])
     # 1.1. 將 Ms.,Miss., Mrs. 缺值的 Age，以其中位數取代
     mask = (x['Age'].isnull()) & ((x['Name'].str.contains('Ms.')) | (x['Name'].str.contains('Miss.')) | (x['Name'].str.contains('Mrs.')))
     mask2 = ((x['Name'].str.contains('Ms.')) | (x['Name'].str.contains('Miss.')) | (x['Name'].str.contains('Mrs.')))
@@ -17,9 +17,12 @@ def get_clean_data(x):
             (x['Name'].str.contains('Mr.')) | (x['Name'].str.contains('Sir.')) | (x['Name'].str.contains('Major')))
     mask2 = ((x['Name'].str.contains('Mr.')) | (x['Name'].str.contains('Sir.')) | (x['Name'].str.contains('Major')))
     x.loc[mask, 'Age'] = x.loc[mask, 'Age'].fillna(x.loc[mask2, 'Age'].median())
-
+    # 1.3. 將 Master. 缺值的 Age，以其中位數取代
     mask = (x['Age'].isnull()) & (x['Name'].str.contains('Master.'))
     x.loc[mask, 'Age'] = x.loc[mask, 'Age'].fillna(x[x['Name'].str.contains('Master.')]['Age'].median())
+    # 1.4. 將 Dr. 缺值的 Age，以其中位數取代
+    mask = (x['Age'].isnull()) & (x['Name'].str.contains('Dr.'))
+    x.loc[mask, 'Age'] = x.loc[mask, 'Age'].fillna(x[x['Name'].str.contains('Dr.')]['Age'].median())
     # print("After filling, the number of 'Age' value is NaN = ", x['Age'].isnull().sum())
 
     # 2. fill NaN for Embarked
