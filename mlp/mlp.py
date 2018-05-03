@@ -15,6 +15,7 @@ x, y = load_csv.load_data(True)
 # print('x.columns => \n', x.columns.values)
 
 x_train = process_data.get_clean_data(x)
+x_train = x_train.drop(['Survived'], axis=1)
 # print(x_train.describe())
 
 # x_train = process_data.get_feature_importances(x_train.columns.values, x_train.values, y.values)

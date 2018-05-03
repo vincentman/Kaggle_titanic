@@ -2,16 +2,19 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a8c42f31-c541-46b0-be5d-8c7a7d54dae3" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/common/load_csv.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/svm/svm_predict.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/random_forest/random_forest_predict.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/random_forest/random_forest_predict_submission.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/random_forest/random_forest_train.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/submission_history" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/Kaggle_titanic.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Kaggle_titanic.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mlp.py" beforeDir="false" afterPath="$PROJECT_DIR$/mlp/mlp.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mlp_train_accuracy.png" beforeDir="false" afterPath="$PROJECT_DIR$/mlp/mlp_train_accuracy.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mlp_train_loss.png" beforeDir="false" afterPath="$PROJECT_DIR$/mlp/mlp_train_loss.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/process_data.py" beforeDir="false" afterPath="$PROJECT_DIR$/common/process_data.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/statistics.py" beforeDir="false" afterPath="$PROJECT_DIR$/common/statistics.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/svm.py" beforeDir="false" afterPath="$PROJECT_DIR$/svm/svm_train.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/load_csv.py" beforeDir="false" afterPath="$PROJECT_DIR$/common/load_csv.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/process_data.py" beforeDir="false" afterPath="$PROJECT_DIR$/common/process_data.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mlp/mlp.py" beforeDir="false" afterPath="$PROJECT_DIR$/mlp/mlp.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/svm/svm_dump.pkl" beforeDir="false" afterPath="$PROJECT_DIR$/svm/svm_dump.pkl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/svm/svm_predict.py" beforeDir="false" afterPath="$PROJECT_DIR$/svm/svm_predict.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/svm/svm_train.py" beforeDir="false" afterPath="$PROJECT_DIR$/svm/svm_train.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -22,28 +25,20 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="mlp.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="mlp.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/mlp/mlp.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-681">
-              <caret line="20" column="25" lean-forward="true" selection-start-line="20" selection-start-column="25" selection-end-line="20" selection-end-column="25" />
-              <folding>
-                <element signature="e#0#19#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="220">
+              <caret line="17" column="7" selection-start-line="17" selection-start-column="7" selection-end-line="17" selection-end-column="7" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="mlp_train_accuracy.png" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/mlp/mlp_train_accuracy.png">
-          <provider selected="true" editor-type-id="images" />
-        </entry>
-      </file>
-      <file leaf-file-name="svm_train.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/svm/svm_train.py">
+      <file leaf-file-name="random_forest_train.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/random_forest/random_forest_train.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="779">
-              <caret line="41" column="39" selection-start-line="41" selection-start-column="39" selection-end-line="41" selection-end-column="39" />
+            <state relative-caret-position="348">
+              <caret line="27" column="17" selection-start-line="27" selection-start-column="17" selection-end-line="27" selection-end-column="17" />
               <folding>
                 <element signature="e#0#11#0" expanded="true" />
               </folding>
@@ -51,35 +46,14 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="svm_predict.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/svm/svm_predict.py">
+      <file leaf-file-name="random_forest_predict_submission.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/random_forest/random_forest_predict_submission.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="133">
-              <caret line="7" column="32" selection-start-line="5" selection-end-line="7" selection-end-column="32" />
+            <state relative-caret-position="220">
+              <caret line="10" column="29" selection-start-line="10" selection-start-column="29" selection-end-line="10" selection-end-column="29" />
               <folding>
-                <element signature="e#0#27#0" expanded="true" />
+                <element signature="e#0#31#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="load_csv.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/common/load_csv.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="95">
-              <caret line="5" column="4" selection-start-line="5" selection-start-column="4" selection-end-line="5" selection-end-column="4" />
-              <folding>
-                <element signature="e#0#19#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="codecs.py" pinned="false" current-in-tab="false">
-        <entry file="file://$USER_HOME$/Anaconda3/envs/myenv/Lib/codecs.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="5852">
-              <caret line="308" selection-start-line="308" selection-end-line="308" />
             </state>
           </provider>
         </entry>
@@ -87,8 +61,8 @@
       <file leaf-file-name="process_data.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/common/process_data.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1482">
-              <caret line="78" column="88" selection-start-line="78" selection-start-column="72" selection-end-line="78" selection-end-column="88" />
+            <state relative-caret-position="242">
+              <caret line="14" column="80" selection-start-line="14" selection-start-column="80" selection-end-line="14" selection-end-column="80" />
               <folding>
                 <element signature="e#0#19#0" expanded="true" />
               </folding>
@@ -96,23 +70,35 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="statistics.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/common/statistics.py">
+      <file leaf-file-name="submission_history" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/submission_history">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2660">
-              <caret line="140" column="4" selection-start-line="140" selection-start-column="4" selection-end-line="140" selection-end-column="4" />
+            <state relative-caret-position="22">
+              <caret line="1" column="26" selection-start-line="1" selection-start-column="26" selection-end-line="1" selection-end-column="26" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="svm_train.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/svm/svm_train.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="176">
+              <caret line="14" selection-start-line="14" selection-end-line="14" selection-end-column="44" />
               <folding>
-                <element signature="e#0#19#0" expanded="true" />
+                <element signature="e#0#11#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="generic.py" pinned="false" current-in-tab="false">
-        <entry file="file://$USER_HOME$/Anaconda3/envs/myenv/Lib/site-packages/pandas/core/generic.py">
+      <file leaf-file-name="random_forest_predict.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/random_forest/random_forest_predict.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="109554">
-              <caret line="5820" selection-start-line="5820" selection-end-line="5820" />
+            <state relative-caret-position="88">
+              <caret line="4" selection-start-line="4" selection-end-line="4" />
+              <folding>
+                <element signature="e#0#31#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -133,11 +119,15 @@
       <find>’</find>
       <find>train</find>
       <find>age</find>
+      <find>Survived</find>
+      <find>Fare</find>
+      <find>median</find>
     </findStrings>
     <replaceStrings>
       <replace>'x</replace>
       <replace>'</replace>
       <replace>x</replace>
+      <replace>mean</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -153,11 +143,16 @@
         <option value="$PROJECT_DIR$/process_data.py" />
         <option value="$PROJECT_DIR$/svm.py" />
         <option value="$PROJECT_DIR$/svm_predict.py" />
-        <option value="$PROJECT_DIR$/common/load_csv.py" />
-        <option value="$PROJECT_DIR$/svm/svm_predict.py" />
-        <option value="$PROJECT_DIR$/svm/svm_train.py" />
         <option value="$PROJECT_DIR$/mlp.py" />
+        <option value="$PROJECT_DIR$/svm/svm_train.py" />
+        <option value="$PROJECT_DIR$/svm/svm_predict.py" />
+        <option value="$PROJECT_DIR$/common/load_csv.py" />
+        <option value="$PROJECT_DIR$/random_forest/random_forest_train.py" />
+        <option value="$PROJECT_DIR$/random_forest/random_forest_predict.py" />
         <option value="$PROJECT_DIR$/mlp/mlp.py" />
+        <option value="$PROJECT_DIR$/random_forest/random_forest_predict_submission.py" />
+        <option value="$PROJECT_DIR$/common/process_data.py" />
+        <option value="$PROJECT_DIR$/submission_history" />
       </list>
     </option>
   </component>
@@ -172,7 +167,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -193,12 +187,18 @@
             <path>
               <item name="Kaggle_titanic" type="b2602c69:ProjectViewProjectNode" />
               <item name="Kaggle_titanic" type="462c0819:PsiDirectoryNode" />
+              <item name="random_forest" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Kaggle_titanic" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Kaggle_titanic" type="462c0819:PsiDirectoryNode" />
               <item name="svm" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -224,25 +224,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.mlp">
-    <configuration name="mlp" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="Kaggle_titanic" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="C:\Users\Vincent\machine_learn\competition\Kaggle_titanic\mlp\mlp.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-    </configuration>
+  <component name="RunManager" selected="Python.random_forest_predict_submission">
     <configuration name="mlp" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="Kaggle_titanic" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -261,7 +243,7 @@
       <option name="EMULATE_TERMINAL" value="false" />
       <option name="MODULE_MODE" value="false" />
     </configuration>
-    <configuration name="svm" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="random_forest_predict" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="Kaggle_titanic" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -269,11 +251,47 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/random_forest" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="C:\Users\Vincent\machine_learn\competition\Kaggle_titanic\svm\svm_train.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/random_forest/random_forest_predict.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+    </configuration>
+    <configuration name="random_forest_predict_submission" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="Kaggle_titanic" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/random_forest" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/random_forest/random_forest_predict_submission.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+    </configuration>
+    <configuration name="random_forest_train" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="Kaggle_titanic" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/random_forest" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/random_forest/random_forest_train.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -316,18 +334,18 @@
       <option name="MODULE_MODE" value="false" />
     </configuration>
     <list>
-      <item itemvalue="Python.svm" />
-      <item itemvalue="Python.svm_train" />
-      <item itemvalue="Python.svm_predict" />
       <item itemvalue="Python.mlp" />
+      <item itemvalue="Python.svm_train" />
+      <item itemvalue="Python.random_forest_train" />
+      <item itemvalue="Python.random_forest_predict" />
+      <item itemvalue="Python.random_forest_predict_submission" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.mlp" />
-        <item itemvalue="Python.mlp" />
-        <item itemvalue="Python.svm_predict" />
+        <item itemvalue="Python.random_forest_predict_submission" />
+        <item itemvalue="Python.random_forest_predict" />
+        <item itemvalue="Python.random_forest_train" />
         <item itemvalue="Python.svm_train" />
-        <item itemvalue="Python.svm" />
       </list>
     </recent_temporary>
   </component>
@@ -345,26 +363,26 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="1295" height="695" extended-state="6" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2279587" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.23024236" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.27482268" />
       <window_info anchor="bottom" id="Version Control" order="7" />
       <window_info anchor="bottom" id="Python Console" order="7" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.28060672" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="Terminal" order="7" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.2393617" />
+      <window_info anchor="bottom" id="Terminal" order="7" visible="true" weight="0.32936078" />
       <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.23890063" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32980973" />
     </layout>
   </component>
   <component name="VcsContentAnnotationSettings">
@@ -379,7 +397,7 @@
           </properties>
         </breakpoint>
       </default-breakpoints>
-      <option name="time" value="43" />
+      <option name="time" value="45" />
     </breakpoint-manager>
     <watches-manager>
       <configuration name="PythonConfigurationType">
@@ -389,6 +407,16 @@
   </component>
   <component name="debuggerHistoryManager">
     <expressions id="evaluateExpression">
+      <expression>
+        <expression-string>pd.DataFrame({&quot;PassengerId&quot;: np.arange(892, 1310), &quot;Survived&quot;: random_forest_clf.predict(x_test)})</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>random_forest_clf.predict(x_test)</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
       <expression>
         <expression-string>x.isnull().sum()</expression-string>
         <language-id>Python</language-id>
@@ -424,98 +452,37 @@
         <language-id>Python</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
-      <expression>
-        <expression-string>x['SibSp'] + x['Parch']</expression-string>
-        <language-id>Python</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>x[['Survived', 'Age']]</expression-string>
-        <language-id>Python</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/mlp/mlp.py">
+    <entry file="file://$PROJECT_DIR$/svm/svm_train.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="494">
-          <caret line="26" column="25" lean-forward="true" selection-start-line="26" selection-start-column="25" selection-end-line="26" selection-end-column="25" />
+        <state relative-caret-position="176">
+          <caret line="14" selection-start-line="14" selection-end-line="14" selection-end-column="44" />
           <folding>
-            <element signature="e#0#19#0" expanded="true" />
+            <element signature="e#0#11#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/Anaconda3/envs/myenv/Lib/codecs.py">
+    <entry file="file://$PROJECT_DIR$/random_forest/random_forest_predict.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="5852">
-          <caret line="308" selection-start-line="308" selection-end-line="308" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/Anaconda3/envs/myenv/Lib/site-packages/keras/optimizers.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="7619">
-          <caret line="401" column="36" selection-start-line="401" selection-start-column="31" selection-end-line="401" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/common/process_data.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="874">
-          <caret line="46" column="7" selection-start-line="46" selection-start-column="7" selection-end-line="46" selection-end-column="7" />
+        <state relative-caret-position="352">
+          <caret line="19" column="45" selection-start-line="19" selection-start-column="45" selection-end-line="19" selection-end-column="45" />
           <folding>
-            <element signature="e#0#19#0" expanded="true" />
+            <element signature="e#0#31#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/Anaconda3/envs/myenv/Lib/site-packages/pandas/core/reshape/concat.py">
+    <entry file="file://$PROJECT_DIR$/random_forest/submission.csv">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3895">
-          <caret line="205" selection-start-line="205" selection-end-line="205" />
+        <state relative-caret-position="9218">
+          <caret line="419" lean-forward="true" selection-start-line="419" selection-end-line="419" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/Anaconda3/envs/myenv/Lib/site-packages/pandas/core/generic.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="110580">
-          <caret line="5820" selection-start-line="5820" selection-end-line="5820" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/mlp/mlp.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="152">
-          <caret line="16" column="31" lean-forward="true" selection-start-line="16" selection-start-column="31" selection-end-line="16" selection-end-column="31" />
-          <folding>
-            <element signature="e#0#19#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/Anaconda3/envs/myenv/Lib/site-packages/keras/optimizers.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="7467">
-          <caret line="401" column="36" selection-start-line="401" selection-start-column="31" selection-end-line="401" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/Anaconda3/envs/myenv/Lib/site-packages/pandas/core/reshape/concat.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3705">
-          <caret line="205" selection-start-line="205" selection-end-line="205" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/Anaconda3/envs/myenv/Lib/site-packages/pandas/core/generic.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="109554">
-          <caret line="5820" selection-start-line="5820" selection-end-line="5820" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$USER_HOME$/Anaconda3/envs/myenv/Lib/site-packages/pandas/core/generic.py" />
     <entry file="file://$PROJECT_DIR$/common/statistics.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2888">
@@ -537,19 +504,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="114">
           <caret line="14" column="31" selection-start-line="14" selection-start-column="30" selection-end-line="14" selection-end-column="31" />
-          <folding>
-            <element signature="e#0#19#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/Anaconda3/envs/myenv/Lib/site-packages/keras/optimizers.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="7467">
-          <caret line="401" column="36" selection-start-line="401" selection-start-column="31" selection-end-line="401" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$USER_HOME$/Anaconda3/envs/myenv/Lib/site-packages/keras/optimizers.py" />
     <entry file="file://$PROJECT_DIR$/common/process_data.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="817">
@@ -557,20 +515,8 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/Anaconda3/envs/myenv/Lib/site-packages/pandas/core/reshape/concat.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3705">
-          <caret line="205" selection-start-line="205" selection-end-line="205" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/Anaconda3/envs/myenv/Lib/site-packages/pandas/core/generic.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="110580">
-          <caret line="5820" selection-start-line="5820" selection-end-line="5820" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$USER_HOME$/Anaconda3/envs/myenv/Lib/site-packages/pandas/core/reshape/concat.py" />
+    <entry file="file://$USER_HOME$/Anaconda3/envs/myenv/Lib/site-packages/pandas/core/generic.py" />
     <entry file="file://$PROJECT_DIR$/common/statistics.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2888">
@@ -581,27 +527,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/Anaconda3/envs/myenv/Lib/site-packages/pandas/core/indexing.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="9386">
-          <caret line="516" selection-start-line="516" selection-end-line="516" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/Anaconda3/envs/myenv/Lib/site-packages/matplotlib/pyplot.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="57570">
-          <caret line="3080" selection-start-line="3080" selection-end-line="3080" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$USER_HOME$/Anaconda3/envs/myenv/Lib/site-packages/pandas/core/indexing.py" />
+    <entry file="file://$USER_HOME$/Anaconda3/envs/myenv/Lib/site-packages/matplotlib/pyplot.py" />
     <entry file="file://$PROJECT_DIR$/mlp/mlp.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="494">
           <caret line="26" selection-start-line="26" selection-end-line="26" />
-          <folding>
-            <element signature="e#0#19#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -612,20 +543,8 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/Anaconda3/envs/myenv/Lib/site-packages/pandas/core/reshape/concat.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3705">
-          <caret line="205" selection-start-line="205" selection-end-line="205" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/Anaconda3/envs/myenv/Lib/site-packages/pandas/core/generic.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="109554">
-          <caret line="5820" selection-start-line="5820" selection-end-line="5820" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$USER_HOME$/Anaconda3/envs/myenv/Lib/site-packages/pandas/core/reshape/concat.py" />
+    <entry file="file://$USER_HOME$/Anaconda3/envs/myenv/Lib/site-packages/pandas/core/generic.py" />
     <entry file="file://$PROJECT_DIR$/common/statistics.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="76">
@@ -636,44 +555,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/Anaconda3/envs/myenv/Lib/site-packages/pandas/core/indexing.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="9386">
-          <caret line="516" selection-start-line="516" selection-end-line="516" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/Anaconda3/envs/myenv/Lib/site-packages/matplotlib/pyplot.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="57570">
-          <caret line="3080" selection-start-line="3080" selection-end-line="3080" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$USER_HOME$/Anaconda3/envs/myenv/Lib/site-packages/pandas/core/indexing.py" />
+    <entry file="file://$USER_HOME$/Anaconda3/envs/myenv/Lib/site-packages/matplotlib/pyplot.py" />
     <entry file="file://$PROJECT_DIR$/mlp/mlp.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="266">
           <caret line="14" column="10" selection-start-line="14" selection-start-column="10" selection-end-line="14" selection-end-column="10" />
-          <folding>
-            <element signature="e#0#19#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/Anaconda3/envs/myenv/Lib/site-packages/pandas/core/indexing.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="9804">
-          <caret line="516" selection-start-line="516" selection-end-line="516" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/Anaconda3/envs/myenv/Lib/site-packages/matplotlib/pyplot.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="58520">
-          <caret line="3080" selection-start-line="3080" selection-end-line="3080" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$USER_HOME$/Anaconda3/envs/myenv/Lib/site-packages/pandas/core/indexing.py" />
+    <entry file="file://$USER_HOME$/Anaconda3/envs/myenv/Lib/site-packages/matplotlib/pyplot.py" />
     <entry file="file://$PROJECT_DIR$/load_data_std.py" />
     <entry file="file://$PROJECT_DIR$/common/statistics.py">
       <provider selected="true" editor-type-id="text-editor">
@@ -685,90 +577,20 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/Anaconda3/envs/myenv/Lib/site-packages/partd/zmq.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="116">
-          <caret line="160" column="8" selection-start-line="160" selection-start-column="8" selection-end-line="160" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/Anaconda3/envs/myenv/Lib/site-packages/matplotlib/pyplot.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="57570">
-          <caret line="3080" selection-start-line="3080" selection-end-line="3080" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/Anaconda3/envs/myenv/Lib/site-packages/matplotlib/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="99">
-          <caret line="986" column="8" selection-start-line="986" selection-start-column="8" selection-end-line="986" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/Anaconda3/envs/myenv/Lib/site-packages/numpy/lib/function_base.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="192">
-          <caret line="665" selection-start-line="665" selection-end-line="665" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/Anaconda3/envs/myenv/Lib/site-packages/pandas/core/indexing.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="9386">
-          <caret line="516" selection-start-line="516" selection-end-line="516" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/Anaconda3/envs/myenv/Lib/site-packages/pandas/core/reshape/concat.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3705">
-          <caret line="205" selection-start-line="205" selection-end-line="205" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$USER_HOME$/Anaconda3/envs/myenv/Lib/site-packages/partd/zmq.py" />
+    <entry file="file://$USER_HOME$/Anaconda3/envs/myenv/Lib/site-packages/matplotlib/pyplot.py" />
+    <entry file="file://$USER_HOME$/Anaconda3/envs/myenv/Lib/site-packages/matplotlib/__init__.py" />
+    <entry file="file://$USER_HOME$/Anaconda3/envs/myenv/Lib/site-packages/numpy/lib/function_base.py" />
+    <entry file="file://$USER_HOME$/Anaconda3/envs/myenv/Lib/site-packages/pandas/core/indexing.py" />
+    <entry file="file://$USER_HOME$/Anaconda3/envs/myenv/Lib/site-packages/pandas/core/reshape/concat.py" />
     <entry file="file://$PROJECT_DIR$/load_data_std.py" />
-    <entry file="file://$USER_HOME$/Anaconda3/envs/myenv/Lib/site-packages/sklearn/preprocessing/data.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="82">
-          <caret line="640" selection-start-line="640" selection-end-line="640" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/Anaconda3/envs/myenv/Lib/site-packages/keras/optimizers.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="7467">
-          <caret line="401" column="36" selection-start-line="401" selection-start-column="31" selection-end-line="401" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/Anaconda3/envs/myenv/Lib/site-packages/pandas/core/generic.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="109554">
-          <caret line="5820" selection-start-line="5820" selection-end-line="5820" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/Anaconda3/envs/myenv/Lib/codecs.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="5852">
-          <caret line="308" selection-start-line="308" selection-end-line="308" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/common/process_data.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1482">
-          <caret line="78" column="88" selection-start-line="78" selection-start-column="72" selection-end-line="78" selection-end-column="88" />
-          <folding>
-            <element signature="e#0#19#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$USER_HOME$/Anaconda3/envs/myenv/Lib/site-packages/sklearn/preprocessing/data.py" />
+    <entry file="file://$USER_HOME$/Anaconda3/envs/myenv/Lib/site-packages/keras/optimizers.py" />
+    <entry file="file://$USER_HOME$/Anaconda3/envs/myenv/Lib/site-packages/pandas/core/generic.py" />
+    <entry file="file://$USER_HOME$/Anaconda3/envs/myenv/Lib/codecs.py" />
     <entry file="file://$PROJECT_DIR$/common/statistics.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2660">
+        <state relative-caret-position="3058">
           <caret line="140" column="4" selection-start-line="140" selection-start-column="4" selection-end-line="140" selection-end-column="4" />
           <folding>
             <element signature="e#0#19#0" expanded="true" />
@@ -776,49 +598,106 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/svm/svm_test_info.txt" />
+    <entry file="file://D:/Anaconda3/envs/myenv/Lib/site-packages/sklearn/model_selection/_validation.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-3419">
+          <caret line="38" column="4" selection-start-line="38" selection-start-column="4" selection-end-line="38" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/common/load_csv.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="95">
-          <caret line="5" column="4" selection-start-line="5" selection-start-column="4" selection-end-line="5" selection-end-column="4" />
-          <folding>
-            <element signature="e#0#19#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="374">
+          <caret line="17" lean-forward="true" selection-start-line="17" selection-end-line="17" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/svm/svm_predict.py">
+    <entry file="file://D:/Anaconda3/envs/myenv/Lib/site-packages/pandas/core/groupby.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="133">
-          <caret line="7" column="32" selection-start-line="5" selection-end-line="7" selection-end-column="32" />
-          <folding>
-            <element signature="e#0#27#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="230">
+          <caret line="2933" selection-start-line="2933" selection-end-line="2933" />
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/mlp/mlp_train_info.txt">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/mlp/mlp_train_accuracy.png">
-      <provider selected="true" editor-type-id="images" />
     </entry>
     <entry file="file://$PROJECT_DIR$/svm/svm_train.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="779">
-          <caret line="41" column="39" selection-start-line="41" selection-start-column="39" selection-end-line="41" selection-end-column="39" />
+        <state relative-caret-position="176">
+          <caret line="14" selection-start-line="14" selection-end-line="14" selection-end-column="44" />
           <folding>
             <element signature="e#0#11#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/svm/svm_predict.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="110">
+          <caret line="10" selection-start-line="10" selection-end-line="10" selection-end-column="42" />
+          <folding>
+            <element signature="e#0#27#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/mlp/mlp.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-681">
-          <caret line="20" column="25" lean-forward="true" selection-start-line="20" selection-start-column="25" selection-end-line="20" selection-end-column="25" />
+        <state relative-caret-position="220">
+          <caret line="17" column="7" selection-start-line="17" selection-start-column="7" selection-end-line="17" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/random_forest/random_forest_predict.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="88">
+          <caret line="4" selection-start-line="4" selection-end-line="4" />
+          <folding>
+            <element signature="e#0#31#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/random_forest/submission.csv">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="526">
+          <caret line="419" lean-forward="true" selection-start-line="419" selection-end-line="419" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/random_forest/random_forest_predict_submission.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="220">
+          <caret line="10" column="29" selection-start-line="10" selection-start-column="29" selection-end-line="10" selection-end-column="29" />
+          <folding>
+            <element signature="e#0#31#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/random_forest/random_forest_train.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="348">
+          <caret line="27" column="17" selection-start-line="27" selection-start-column="17" selection-end-line="27" selection-end-column="17" />
+          <folding>
+            <element signature="e#0#11#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/common/process_data.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="242">
+          <caret line="14" column="80" selection-start-line="14" selection-start-column="80" selection-end-line="14" selection-end-column="80" />
           <folding>
             <element signature="e#0#19#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/submission_history">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="22">
+          <caret line="1" column="26" selection-start-line="1" selection-start-column="26" selection-end-line="1" selection-end-column="26" />
         </state>
       </provider>
     </entry>

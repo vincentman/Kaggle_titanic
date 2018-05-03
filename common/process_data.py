@@ -2,6 +2,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
 
+
 def get_clean_data(x):
     print('Before cleaning data, the number of column value is NaN =\n', x.isnull().sum())
 
@@ -43,8 +44,8 @@ def get_clean_data(x):
     print('count:\n', x.groupby(['Title1', 'Sex'])['Name'].count())
     print('=======================')
     # pd.crosstab(x['Title1'], x['Survived']).T.style.background_gradient(cmap='summer_r')
-    print('count:\n', x.groupby(['Title1', 'Survived'])['Name'].count())
-    print('=======================')
+    # print('count:\n', x.groupby(['Title1', 'Survived'])['Name'].count())
+    # print('=======================')
     print('Average Age:\n', x.groupby(['Title1', 'Pclass'])['Age'].mean())
     print('=======================')
 
@@ -57,24 +58,27 @@ def get_clean_data(x):
     print('count:\n', x.groupby(['Title2', 'Sex'])['Name'].count())
     print('=======================')
     # pd.crosstab(x['Title2'], x['Survived']).T.style.background_gradient(cmap='summer_r')
-    print('count:\n', x.groupby(['Title2', 'Survived'])['Name'].count())
-    print('=======================')
+    # print('count:\n', x.groupby(['Title2', 'Survived'])['Name'].count())
+    # print('=======================')
     print('Average Age:\n', x.groupby(['Title2', 'Pclass'])['Age'].mean())
     print('=======================')
 
     # 6. Extract Ticket into Ticket_info
     x['Ticket_info'] = x['Ticket'].apply(
         lambda x: x.replace(".", "").replace("/", "").strip().split(' ')[0] if not x.isdigit() else 'X')
-    print('count:\n', x.groupby(['Ticket_info', 'Survived'])['Name'].count())
+    # print('count:\n', x.groupby(['Ticket_info', 'Survived'])['Name'].count())
     # sns.countplot(x['Ticket_info'], hue=x['Survived'])
 
     # 7. Cabin：取出最前面的英文字母，缺值的用'NoCabin'來取代
     x["Cabin"] = x['Cabin'].apply(lambda x: str(x)[0] if not pd.isnull(x) else 'NoCabin')
-    print('count:\n', x.groupby(['Cabin', 'Survived'])['Name'].count())
+    # print('count:\n', x.groupby(['Cabin', 'Survived'])['Name'].count())
     # sns.countplot(x['Cabin'], hue=x['Survived'])
 
+    # 8. fill NaN for Fare: mean
+    x['Fare'] = x['Fare'].fillna(x['Fare'].mean())
+
     #  drop unused columns
-    x = x.drop(['Name', 'Ticket', 'Survived', 'PassengerId', 'SibSp', 'Parch', 'Title1'], axis=1)
+    x = x.drop(['Name', 'Ticket', 'PassengerId', 'SibSp', 'Parch', 'Title1'], axis=1)
 
     print('After cleaning data, the number of column value is NaN =\n', x.isnull().sum())
     print('=======================')
@@ -95,7 +99,7 @@ def get_clean_data(x):
     return x
 
 
-def get_feature_importances(column_names, x_train, y_train):
+def get_feature_importance(column_names, x_train, y_train):
     from sklearn.ensemble import RandomForestClassifier
     import numpy as np
     import matplotlib.pyplot as plt
