@@ -1,3 +1,7 @@
+2018/05/03 15:10
+1. use svm, larger train data ratio
+submission score = 0.62679
+--------------------------------
 2018/05/03 14:40
 1. use svm
 submission score = 0.38277
