@@ -5,6 +5,8 @@ import pandas as pd
 from sklearn.preprocessing import StandardScaler
 from sklearn.externals import joblib
 from common import load_csv
+from sklearn.model_selection import GridSearchCV
+from sklearn.model_selection import StratifiedKFold
 
 # turn off warning: SettingWithCopyWarning
 pd.set_option('chained_assignment', None)
@@ -26,12 +28,13 @@ start = time.time()
 param_range = [0.0001, 0.001, 0.01, 0.1, 1.0, 10.0, 100.0, 1000.0]
 param_grid = [{'C': param_range, 'gamma': param_range, 'kernel': ['rbf']}]
 svm = SVC(random_state=0, verbose=False)
-from sklearn.model_selection import GridSearchCV
 
+kfold = StratifiedKFold(n_splits=10)
 gs = GridSearchCV(estimator=svm,
                   param_grid=param_grid,
                   scoring='accuracy',
-                  cv=5)
+                  cv=kfold)
+                  # cv=5)
 gs.fit(x_train, y_train)
 print('\nSVM at GridSearch, best score: ', gs.best_score_)
 best_param = 'SVM at GridSearch, train best param: {}'.format(gs.best_params_)
