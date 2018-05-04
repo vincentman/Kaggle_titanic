@@ -8,6 +8,7 @@ from sklearn.pipeline import Pipeline
 from sklearn.ensemble import RandomForestClassifier
 import numpy as np
 from sklearn.model_selection import cross_val_score
+from sklearn.model_selection import StratifiedKFold
 
 # turn off warning: SettingWithCopyWarning
 pd.set_option('chained_assignment', None)
@@ -30,10 +31,12 @@ pipe_rf = Pipeline([
 #                                                    n_jobs=-1))])
 
 start = time.time()
+kfold = StratifiedKFold(n_splits=10)
 scores = cross_val_score(estimator=pipe_rf,
                          X=x_train,
                          y=y,
-                         cv=5,
+                         cv=kfold,
+                         # cv=5,
                          n_jobs=1)
 clf.fit(x_train, y)
 end = time.time()
