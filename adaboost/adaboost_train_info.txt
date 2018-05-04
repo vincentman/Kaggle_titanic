@@ -1,0 +1,2 @@
+AdaBoost, elapsed training time: 0 min, 11 sec 
+train accuracy = AdaBoost, CV train accuracy: 0.778 +/- 0.030
