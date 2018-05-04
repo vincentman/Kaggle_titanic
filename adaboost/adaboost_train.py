@@ -32,20 +32,22 @@ tree = DecisionTreeClassifier(criterion='entropy',
 clf = AdaBoostClassifier(tree, random_state=7)
 
 param_grid = {"base_estimator__criterion": ["gini", "entropy"],
-              "n_estimators": [1, 2],
-              "learning_rate": [0.0001, 0.001, 0.01, 0.1, 0.2, 0.3, 1.5]}
+              "base_estimator__splitter": ["best", "random"],
+              "n_estimators": [1000],
+              "learning_rate": [0.0001, 0.001, 0.01, 0.1]}
 # param_grid = {"base_estimator__criterion": ["gini", "entropy"],
 #                   "base_estimator__splitter": ["best", "random"],
 #                   "algorithm": ["SAMME", "SAMME.R"],
-#                   "n_estimators": [1, 2],
+#                   "n_estimators": [100, 200],
 #                   "learning_rate": [0.0001, 0.001, 0.01, 0.1, 0.2, 0.3, 1.5]}
 
 kfold = StratifiedKFold(n_splits=10)
 start = time.time()
-gs = GridSearchCV(clf, param_grid=param_grid, cv=kfold, scoring="accuracy", n_jobs=4, verbose=1)
+gs = GridSearchCV(clf, param_grid=param_grid, cv=kfold, scoring="accuracy", verbose=1)
 
 gs.fit(x_train, y)
-print('\nAdaBoost at GridSearch, best score: ', gs.best_score_)
+best_score = 'AdaBoost at GridSearch, best score: {}'.format(gs.best_score_)
+print('\n{}', best_score)
 best_param = 'AdaBoost at GridSearch, train best param: {}'.format(gs.best_params_)
 print(best_param)
 end = time.time()
@@ -56,8 +58,9 @@ best_clf = gs.best_estimator_
 best_clf.fit(x_train, y)
 train_score = best_clf.score(x_train, y)
 print('AdaBoost, train accuracy: ', train_score)
-# joblib.dump(best_clf, 'AdaBoost_dump.pkl')
-with open('AdaBoost_train_info.txt', 'w') as file:
+joblib.dump(best_clf, 'adaboost_dump.pkl')
+with open('adaboost_train_info.txt', 'w') as file:
     file.write(elapsed_train_time + '\n')
+    file.write(best_score + '\n')
     file.write(best_param + '\n')
     file.write('train accuracy = {}'.format(train_score))

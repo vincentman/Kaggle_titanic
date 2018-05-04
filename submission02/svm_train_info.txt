@@ -1,2 +1,0 @@
-SVM, elapsed training time: 0 min, 6 sec 
-train accuracy = 0.8269230769230769

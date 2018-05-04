@@ -1,2 +1,0 @@
-Random Forest, elapsed training time: 0 min, 9 sec 
-train accuracy = Random Forest, CV train accuracy: 0.816 +/- 0.033
