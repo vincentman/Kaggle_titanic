@@ -1,14 +1,12 @@
 import time
 from common import process_data
 import pandas as pd
-from sklearn.preprocessing import StandardScaler
 from sklearn.externals import joblib
-from common import load_csv
+from submission01 import load_csv
 from sklearn.pipeline import Pipeline
 from sklearn.ensemble import RandomForestClassifier
 import numpy as np
 from sklearn.model_selection import cross_val_score
-from sklearn.model_selection import StratifiedKFold
 
 # turn off warning: SettingWithCopyWarning
 pd.set_option('chained_assignment', None)
@@ -22,7 +20,6 @@ print('x_train.shape: ', x_train.shape)
 print('x_train.columns => \n', x_train.columns.values)
 print('y.shape: ', y.shape)
 
-kfold = StratifiedKFold(n_splits=10)
 clf = RandomForestClassifier(n_estimators=1000, random_state=0, n_jobs=-1)
 pipe_rf = Pipeline([
     ('clf', clf)])
@@ -35,8 +32,7 @@ start = time.time()
 scores = cross_val_score(estimator=pipe_rf,
                          X=x_train,
                          y=y,
-                         cv=kfold,
-                         # cv=5,
+                         cv=5,
                          n_jobs=1)
 clf.fit(x_train, y)
 end = time.time()
