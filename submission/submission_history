@@ -1,3 +1,7 @@
+2018/05/07 17:20
+1. update random forest, use grid search
+submission score = 0.78468
+--------------------------------
 2018/05/03 15:10
 1. use svm, larger train data ratio(0.8)
 submission score = 0.62679
