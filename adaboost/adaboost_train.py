@@ -46,7 +46,7 @@ start = time.time()
 gs = GridSearchCV(clf, param_grid=param_grid, cv=kfold, scoring="accuracy", verbose=1)
 
 gs.fit(x_train, y)
-best_score = 'AdaBoost at GridSearch, best score: {}'.format(gs.best_score_)
+best_score = 'AdaBoost at GridSearch, train best score: {}'.format(gs.best_score_)
 print('\n{}', best_score)
 best_param = 'AdaBoost at GridSearch, train best param: {}'.format(gs.best_params_)
 print(best_param)
