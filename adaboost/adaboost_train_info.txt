@@ -1,4 +1,4 @@
-AdaBoost, elapsed training time: 10 min, 26 sec 
+AdaBoost, elapsed training time: 5 min, 20 sec 
 AdaBoost at GridSearch, best score: 0.7924263674614306
 AdaBoost at GridSearch, train best param: {'base_estimator__criterion': 'gini', 'base_estimator__splitter': 'random', 'learning_rate': 0.0001, 'n_estimators': 1000}
-train accuracy = 0.9901823281907434
+train accuracy = 0.7924263674614306

@@ -55,12 +55,8 @@ elapsed_train_time = 'AdaBoost, elapsed training time: {} min, {} sec '.format(i
                                                                                int((end - start) % 60))
 print(elapsed_train_time)
 best_clf = gs.best_estimator_
-best_clf.fit(x_train, y)
-train_score = best_clf.score(x_train, y)
-print('AdaBoost, train accuracy: ', train_score)
 joblib.dump(best_clf, 'adaboost_dump.pkl')
 with open('adaboost_train_info.txt', 'w') as file:
     file.write(elapsed_train_time + '\n')
     file.write(best_score + '\n')
     file.write(best_param + '\n')
-    file.write('train accuracy = {}'.format(train_score))
