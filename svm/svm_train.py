@@ -36,7 +36,8 @@ gs = GridSearchCV(estimator=svm,
                   cv=kfold)
                   # cv=5)
 gs.fit(x_train, y_train)
-print('\nSVM at GridSearch, best score: ', gs.best_score_)
+best_score = 'SVM at GridSearch, best score: {}'.format(gs.best_score_)
+print('\n', best_score)
 best_param = 'SVM at GridSearch, train best param: {}'.format(gs.best_params_)
 print(best_param)
 end = time.time()
@@ -45,10 +46,8 @@ elapsed_train_time = 'SVM, elapsed training time: {} min, {} sec '.format(int((e
 print(elapsed_train_time)
 best_clf = gs.best_estimator_
 best_clf.fit(x_train, y_train)
-train_score = best_clf.score(x_train, y_train)
-print('SVM, train accuracy: ', train_score)
 joblib.dump(best_clf, 'svm_dump.pkl')
 with open('svm_train_info.txt', 'w') as file:
     file.write(elapsed_train_time + '\n')
     file.write(best_param + '\n')
-    file.write('train accuracy = {}'.format(train_score))
+    file.write(best_score + '\n')
