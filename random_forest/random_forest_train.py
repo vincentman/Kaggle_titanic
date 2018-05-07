@@ -9,6 +9,7 @@ from sklearn.ensemble import RandomForestClassifier
 import numpy as np
 from sklearn.model_selection import cross_val_score
 from sklearn.model_selection import StratifiedKFold
+from sklearn.model_selection import GridSearchCV
 
 # turn off warning: SettingWithCopyWarning
 pd.set_option('chained_assignment', None)
@@ -22,9 +23,7 @@ print('x_train.shape: ', x_train.shape)
 print('x_train.columns => \n', x_train.columns.values)
 print('y.shape: ', y.shape)
 
-clf = RandomForestClassifier(n_estimators=1000, random_state=0, n_jobs=-1)
-pipe_rf = Pipeline([
-    ('clf', clf)])
+clf = RandomForestClassifier(n_estimators=1000, random_state=0, n_jobs=-1, max_depth=4)
 # pipe_rf = Pipeline([('scl', StandardScaler()),
 #                     ('clf', RandomForestClassifier(n_estimators=10000,
 #                                                    random_state=0,
@@ -32,22 +31,36 @@ pipe_rf = Pipeline([
 
 start = time.time()
 kfold = StratifiedKFold(n_splits=10)
-scores = cross_val_score(estimator=pipe_rf,
-                         X=x_train,
-                         y=y,
-                         cv=kfold,
-                         # cv=5,
-                         n_jobs=1)
-clf.fit(x_train, y)
+# param_grid = [{'max_depth': [4, 6, 8]}]
+param_grid = [{'max_depth': [4, 6, 8],
+               # "max_features": [1, 3, 9],
+               "min_samples_split": [2, 3, 10],
+               "min_samples_leaf": [1, 3, 10]}]
+gs = GridSearchCV(estimator=clf,
+                  param_grid=param_grid,
+                  scoring='accuracy',
+                  cv=kfold)
+# cv=5)
+gs.fit(x_train, y)
+# clf.fit(x_train, y)
+# scores = cross_val_score(estimator=clf,
+#                          X=x_train,
+#                          y=y,
+#                          cv=kfold,
+#                          # cv=5,
+#                          n_jobs=1)
 end = time.time()
 elapsed_train_time = 'Random Forest, elapsed training time: {} min, {} sec '.format(int((end - start) / 60),
-                                                                          int((end - start) % 60))
+                                                                                    int((end - start) % 60))
 print(elapsed_train_time)
 # print('Random Forest, CV train accuracy: %s' % scores)
-train_score = 'Random Forest, CV train accuracy: %.3f +/- %.3f' % (np.mean(scores), np.std(scores))
-# train_score = 'Random Forest, train accuracy: {}'.format(clf.score(x_train, y))
-print(train_score)
-joblib.dump(clf, 'random_forest_dump.pkl')
+# train_score = 'Random Forest, CV train accuracy: %.3f +/- %.3f' % (np.mean(scores), np.std(scores))
+best_score = 'Random Forest, train best score: {}'.format(gs.best_score_)
+best_param = 'Random Forest, train best param: {}'.format(gs.best_params_)
+print(best_param)
+print(best_score)
+joblib.dump(gs.best_estimator_, 'random_forest_dump.pkl')
 with open('random_forest_train_info.txt', 'w') as file:
     file.write(elapsed_train_time + '\n')
-    file.write('train accuracy = {}'.format(train_score))
+    file.write(best_param + '\n')
+    file.write(best_score + '\n')

@@ -1,2 +1,3 @@
 Random Forest, elapsed training time: 1 min, 4 sec 
-train accuracy = Random Forest, CV train accuracy: 0.807 +/- 0.039
+Random Forest, train best param: {'max_depth': 6}
+Random Forest, train best score: 0.8288920056100981
