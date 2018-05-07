@@ -71,6 +71,8 @@ end = time.time()
 elapsed_train_time = 'elapsed training time: {} min, {} sec '.format(int((end - start) / 60), int((end - start) % 60))
 print(elapsed_train_time)
 
+model.save('mlp_train_model.h5')
+
 with open('mlp_train_info.txt', 'w') as file:
     file.write(elapsed_train_time+'\n')
     file.write('train accuracy = {}, validation accuracy = {}\n'.format(train_acc, validation_acc))
