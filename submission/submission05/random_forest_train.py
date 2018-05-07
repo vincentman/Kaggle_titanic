@@ -31,11 +31,11 @@ clf = RandomForestClassifier(n_estimators=1000, random_state=0, n_jobs=-1, max_d
 
 start = time.time()
 kfold = StratifiedKFold(n_splits=10)
-# param_grid = [{'max_depth': [4, 6, 8]}]
-param_grid = [{'max_depth': [4, 6, 8],
-               # "max_features": [1, 3, 9],
-               "min_samples_split": [2, 3, 10],
-               "min_samples_leaf": [1, 3, 10]}]
+param_grid = [{'max_depth': [4, 6, 8]}]
+# param_grid = [{'max_depth': [4, 6, 8],
+#                # "max_features": [1, 3, 9],
+#                "min_samples_split": [2, 3, 10],
+#                "min_samples_leaf": [1, 3, 10]}]
 gs = GridSearchCV(estimator=clf,
                   param_grid=param_grid,
                   scoring='accuracy',
