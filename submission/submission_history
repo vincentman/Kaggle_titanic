@@ -1,3 +1,7 @@
+2018/05/07 21:20
+1. update random forest, use grid search with more param
+submission score = 0.78947
+--------------------------------
 2018/05/07 17:20
 1. update random forest, use grid search
 submission score = 0.78468
