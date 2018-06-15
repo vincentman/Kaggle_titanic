@@ -1,7 +1,7 @@
 import pandas as pd
 import math
 
-train_data_ratio = 0.8
+train_data_ratio = 0.9
 
 
 def load_data(is_train):
