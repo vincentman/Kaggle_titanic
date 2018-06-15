@@ -1,6 +1,7 @@
 import time
 from sklearn.svm import SVC
 from common import process_data
+from common import process_train_test_data
 import pandas as pd
 from sklearn.preprocessing import StandardScaler
 from sklearn.externals import joblib
@@ -11,10 +12,14 @@ from sklearn.model_selection import StratifiedKFold
 # turn off warning: SettingWithCopyWarning
 pd.set_option('chained_assignment', None)
 
-x, y = load_csv.load_data(True)
+# x, y = load_csv.load_data(True)
+# x_train = process_data.get_clean_data(x)
+# x_train = x_train.drop(['Survived'], axis=1)
 
-x_train = process_data.get_clean_data(x)
-x_train = x_train.drop(['Survived'], axis=1)
+all_data = process_train_test_data.get_clean_data()
+train_data = process_train_test_data.get_train_data(all_data)
+y = train_data.Survived
+x_train = train_data.drop(['Survived'], axis=1)
 
 print('x_train.shape: ', x_train.shape)
 print('x_train.columns => \n', x_train.columns.values)

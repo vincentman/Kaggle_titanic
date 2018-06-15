@@ -1,14 +1,19 @@
 from sklearn.svm import SVC
 from common import process_data
+from common import process_train_test_data
 import pandas as pd
 from sklearn.preprocessing import StandardScaler
 from sklearn.externals import joblib
 from common import load_csv
 
-x, y = load_csv.load_data(False)
+# x, y = load_csv.load_data(False)
+# x_test = process_data.get_clean_data(x)
+# x_test = x_test.drop(['Survived'], axis=1)
 
-x_test = process_data.get_clean_data(x)
-x_test = x_test.drop(['Survived'], axis=1)
+all_data = process_train_test_data.get_clean_data()
+validation_data = process_train_test_data.get_validation_data(all_data)
+y = validation_data.Survived
+x_test = validation_data.drop(['Survived'], axis=1)
 
 print('x_test.shape: ', x_test.shape)
 print('x_test.columns => \n', x_test.columns.values)

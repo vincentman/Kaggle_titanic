@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 import math
 
-train_data_ratio = 0.9
+train_data_ratio = 0.7
 
 
 def get_train_data(x):
