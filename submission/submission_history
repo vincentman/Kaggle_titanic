@@ -1,3 +1,7 @@
+(07) 2018/06/15 12:35
+1. modify train data proportion as 0.9
+submission score = 0.78947
+--------------------------------
 2018/05/07 21:20
 1. update random forest, use grid search with more param
 submission score = 0.78947
