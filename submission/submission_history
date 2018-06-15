@@ -1,3 +1,7 @@
+(08) 2018/06/15 22:50
+1. load train and test csv to do feature engineering
+submission score = 0.77990
+--------------------------------
 (07) 2018/06/15 12:35
 1. modify train data proportion as 0.9
 submission score = 0.78947
