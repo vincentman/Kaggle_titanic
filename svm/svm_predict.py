@@ -1,6 +1,7 @@
 from sklearn.svm import SVC
 from common import process_data
 from common import process_train_test_data
+from common import process_data_from_Yassine
 import pandas as pd
 from sklearn.preprocessing import StandardScaler
 from sklearn.externals import joblib
@@ -10,8 +11,12 @@ from common import load_csv
 # x_test = process_data.get_clean_data(x)
 # x_test = x_test.drop(['Survived'], axis=1)
 
-all_data = process_train_test_data.get_clean_data()
-validation_data = process_train_test_data.get_validation_data(all_data)
+# all_data = process_train_test_data.get_clean_data()
+# validation_data = process_train_test_data.get_validation_data(all_data)
+
+process_data = process_data_from_Yassine.ProcessData()
+process_data.feature_engineering()
+validation_data = process_data.get_validation_data()
 y = validation_data.Survived
 x_test = validation_data.drop(['Survived'], axis=1)
 

@@ -1,6 +1,7 @@
 import time
 from common import process_data
 from common import process_train_test_data
+from common import process_data_from_Yassine
 import pandas as pd
 from sklearn.externals import joblib
 from common import load_csv
@@ -17,8 +18,12 @@ pd.set_option('chained_assignment', None)
 # x_train = process_data.get_clean_data(x)
 # x_train = x_train.drop(['Survived'], axis=1)
 
-all_data = process_train_test_data.get_clean_data()
-train_data = process_train_test_data.get_train_data(all_data)
+# all_data = process_train_test_data.get_clean_data()
+# train_data = process_train_test_data.get_train_data(all_data)
+
+process_data = process_data_from_Yassine.ProcessData()
+process_data.feature_engineering()
+train_data = process_data.get_train_data()
 y = train_data.Survived
 x_train = train_data.drop(['Survived'], axis=1)
 
