@@ -31,27 +31,22 @@ print('x_train.shape: ', x_train.shape)
 print('x_train.columns => \n', x_train.columns.values)
 print('y.shape: ', y.shape)
 
-clf = RandomForestClassifier(n_estimators=1000, random_state=0, n_jobs=-1, max_depth=4)
-# pipe_rf = Pipeline([('scl', StandardScaler()),
-#                     ('clf', RandomForestClassifier(n_estimators=10000,
-#                                                    random_state=0,
-#                                                    n_jobs=-1))])
+clf = RandomForestClassifier(n_estimators=1000, random_state=0, n_jobs=-1, bootstrap=False)
 
 start = time.time()
 kfold = StratifiedKFold(n_splits=10)
-param_max_depth = [4, 6, 8]
-param_min_samples_split = [2, 3, 5, 10]
-# param_min_samples_split = [2, 3, 10]
-# param_min_samples_split = [3, 5, 10]
-param_min_samples_leaf = [1, 3, 5, 10]
-# param_min_samples_leaf = [1, 3, 10]
-# param_min_samples_leaf = [1, 5, 10]
-param_max_features = [1, 3, 5, 9]
-# param_max_features = [1, 3, 9]
-param_grid = [{'max_depth': param_max_depth,
-               # "max_features": [1, 3, 9],
-               "min_samples_split": param_min_samples_split,
-               "min_samples_leaf": param_min_samples_leaf}]
+# param_max_depth = [4, 6, 8]
+param_max_depth = [None]
+param_min_samples_split = [2, 3, 10]
+param_min_samples_leaf = [1, 3, 10]
+param_max_features = [1, 3, 10]
+param_n_estimators = [100, 300]
+param_grid = {"max_depth": param_max_depth,
+              "max_features": param_max_features,
+              "min_samples_split": param_min_samples_split,
+              "min_samples_leaf": param_min_samples_leaf,
+              "n_estimators": param_n_estimators,
+              }
 gs = GridSearchCV(estimator=clf,
                   param_grid=param_grid,
                   scoring='accuracy',
@@ -73,6 +68,9 @@ print(elapsed_train_time)
 # train_score = 'Random Forest, CV train accuracy: %.3f +/- %.3f' % (np.mean(scores), np.std(scores))
 best_score = 'Random Forest, train best score: {}'.format(gs.best_score_)
 best_param = 'Random Forest, train best param: {}'.format(gs.best_params_)
+print('--------------------------------------------')
+print(gs.best_estimator_)
+print('--------------------------------------------')
 print(best_param)
 print(best_score)
 joblib.dump(gs.best_estimator_, 'random_forest_dump.pkl')
