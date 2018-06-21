@@ -1,0 +1,9 @@
+SVM, elapsed training time: 0 min, 26 sec 
+--------------------------------------------
+SVC(C=300, cache_size=200, class_weight=None, coef0=0.0,
+  decision_function_shape='ovr', degree=3, gamma=0.001, kernel='rbf',
+  max_iter=-1, probability=False, random_state=0, shrinking=True,
+  tol=0.001, verbose=False)
+--------------------------------------------
+SVM at GridSearch, train best param: {'C': 300, 'gamma': 0.001, 'kernel': 'rbf'}
+SVM at GridSearch, best score: 0.8366583541147132
