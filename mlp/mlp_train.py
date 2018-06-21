@@ -1,22 +1,26 @@
 import pandas as pd
 from sklearn.preprocessing import StandardScaler
-from common import process_data, statistics as stat
+from common import process_data
+from common import statistics as stat
 import time
 from keras.models import Sequential
 from keras.layers import Dense, Dropout, Activation, BatchNormalization
 from keras.regularizers import l2
 from common import load_csv
+from common import process_data_from_Yassine
 
 # turn off warning: SettingWithCopyWarning
 pd.set_option('chained_assignment', None)
 
-x, y = load_csv.load_data(True)
-# print('x.shape: ', x.shape)
-# print('x.columns => \n', x.columns.values)
+# x, y = load_csv.load_data(True)
+# x_train = process_data.get_clean_data(x)
+# x_train = x_train.drop(['Survived'], axis=1)
 
-x_train = process_data.get_clean_data(x)
-x_train = x_train.drop(['Survived'], axis=1)
-# print(x_train.describe())
+process_data = process_data_from_Yassine.ProcessData(train_data_ratio=0.7)
+process_data.feature_engineering()
+train_data = process_data.get_train_data()
+y = train_data.Survived
+x_train = train_data.drop(['Survived'], axis=1)
 
 # x_train = process_data.get_feature_importances(x_train.columns.values, x_train.values, y.values)
 # stat.show_statistics(x)

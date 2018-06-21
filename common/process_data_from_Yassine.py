@@ -5,12 +5,11 @@ import math
 
 
 class ProcessData:
-    train_data_ratio = 0.9
-
-    def __init__(self):
-        self.df_csv_train = pd.read_csv("../train.csv") #891 samples
-        self.df_csv_test = pd.read_csv("../test.csv") #418 samples
-        self.dataset = None
+    def __init__(self, train_data_ratio=0.9):
+        self.train_data_ratio = train_data_ratio
+        self.df_csv_train = pd.read_csv("../train.csv")  # 891 samples
+        self.df_csv_test = pd.read_csv("../test.csv")  # 418 samples
+        self.dataset = None  # combine train and test csv
 
         self.df_model_train = None
         self.df_model_validation = None
@@ -72,8 +71,9 @@ class ProcessData:
         for i in index_NaN_age:
             age_med = self.dataset["Age"].median()
             age_pred = self.dataset["Age"][(
-                    (self.dataset['SibSp'] == self.dataset.iloc[i]["SibSp"]) & (self.dataset['Parch'] == self.dataset.iloc[i]["Parch"]) & (
-                    self.dataset['Pclass'] == self.dataset.iloc[i]["Pclass"]))].median()
+                    (self.dataset['SibSp'] == self.dataset.iloc[i]["SibSp"]) & (
+                    self.dataset['Parch'] == self.dataset.iloc[i]["Parch"]) & (
+                            self.dataset['Pclass'] == self.dataset.iloc[i]["Pclass"]))].median()
             if not np.isnan(age_pred):
                 self.dataset['Age'].iloc[i] = age_pred
             else:
@@ -139,7 +139,7 @@ class ProcessData:
         self.df_model_validation["Survived"] = self.df_model_validation["Survived"].astype(int)
 
     def split_data_to_train_validation(self):
-        df_model_train_len = math.ceil(len(self.df_csv_train) * ProcessData.train_data_ratio)
+        df_model_train_len = math.ceil(len(self.df_csv_train) * self.train_data_ratio)
         self.df_model_train = self.dataset.iloc[:df_model_train_len]
         self.df_model_validation = self.dataset.iloc[df_model_train_len:len(self.df_csv_train)]
 
