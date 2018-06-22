@@ -12,7 +12,7 @@ pd.set_option('chained_assignment', None)
 # x_test = process_data.get_clean_data(x)
 # x_test = x_test.drop(['Survived'], axis=1)
 
-process_data = process_data_from_Yassine.ProcessData()
+process_data = process_data_from_Yassine.ProcessData(train_data_ratio=0.7)
 process_data.feature_engineering()
 validation_data = process_data.get_validation_data()
 y = validation_data.Survived

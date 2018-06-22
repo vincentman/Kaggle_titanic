@@ -138,6 +138,8 @@ def show_statistics(x):
 
     # plt.show()
 
+
+# used for MLP
 def show_train_history(train_history, epochs, train_acc, validation_acc, ylabel):
     plt.plot(train_history.history[train_acc])
     plt.plot(train_history.history[validation_acc])
@@ -151,7 +153,7 @@ def show_train_history(train_history, epochs, train_acc, validation_acc, ylabel)
     plt.xlim(xmax=epochs+1)
     plt.legend(['train', 'validation'], loc='upper left')
     fig = plt.gcf()
-    fig.savefig('./mlp_train_{}.png'.format(ylabel), dpi=300)
+    fig.savefig('./mlp_train_{}.png'.format(ylabel), dpi=100)
     plt.clf()
     # plt.show()
     return final_epoch_train_acc, final_epoch_validation_acc
