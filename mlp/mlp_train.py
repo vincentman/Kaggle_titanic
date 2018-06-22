@@ -16,7 +16,7 @@ pd.set_option('chained_assignment', None)
 # x_train = process_data.get_clean_data(x)
 # x_train = x_train.drop(['Survived'], axis=1)
 
-process_data = process_data_from_Yassine.ProcessData(train_data_ratio=0.7)
+process_data = process_data_from_Yassine.ProcessData(train_data_ratio=0.9)
 process_data.feature_engineering()
 train_data = process_data.get_train_data()
 y = train_data.Survived
@@ -52,7 +52,7 @@ model.add(Dropout(0.4))
 model.add(Dense(units=1, activation='sigmoid'))
 print(model.summary())
 
-epochs = 20
+epochs = 30
 # from keras.optimizers import Adam
 # learning_rate = 0.001
 # adam = Adam(lr=learning_rate, decay=0.0001)
