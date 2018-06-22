@@ -30,7 +30,6 @@ print('x_train.columns => \n', x_train.columns.values)
 print('y.shape: ', y.shape)
 
 x_train = StandardScaler().fit_transform(x_train.values)
-y_train = y.values
 
 model = Sequential()
 model.add(Dense(units=30, input_dim=x_train.shape[1], kernel_regularizer=l2(0.01)))
@@ -53,7 +52,7 @@ model.add(Dropout(0.4))
 model.add(Dense(units=1, activation='sigmoid'))
 print(model.summary())
 
-epochs = 30
+epochs = 20
 # from keras.optimizers import Adam
 # learning_rate = 0.001
 # adam = Adam(lr=learning_rate, decay=0.0001)
@@ -67,7 +66,7 @@ train_history = model.fit(x=x_train,
                           validation_split=0.1,
                           epochs=epochs,
                           shuffle=True,
-                          batch_size=24, verbose=2)
+                          batch_size=20, verbose=2)
 train_acc, validation_acc = stat.show_train_history(train_history, epochs, 'acc', 'val_acc', 'accuracy')
 train_loss, validation_loss = stat.show_train_history(train_history, epochs, 'loss', 'val_loss', 'loss')
 
