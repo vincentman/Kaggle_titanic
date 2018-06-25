@@ -1,0 +1,10 @@
+SGD with SVM, elapsed training time: 0 min, 1 sec 
+--------------------------------------------
+SGDClassifier(alpha=0.1, average=False, class_weight=None, epsilon=0.1,
+       eta0=0.0, fit_intercept=True, l1_ratio=0.1, learning_rate='optimal',
+       loss='hinge', max_iter=None, n_iter=None, n_jobs=1,
+       penalty='elasticnet', power_t=0.5, random_state=None, shuffle=True,
+       tol=0.001, verbose=2, warm_start=False)
+--------------------------------------------
+SGD with SVM at GridSearch, train best param: {'alpha': 0.1, 'l1_ratio': 0.1, 'loss': 'hinge'}
+SGD with SVM at GridSearch, train best score: 0.8229426433915212
