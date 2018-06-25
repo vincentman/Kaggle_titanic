@@ -1,5 +1,5 @@
 import pandas as pd
-from sklearn.preprocessing import StandardScaler
+from sklearn.preprocessing import StandardScaler, MinMaxScaler
 from common import process_data
 from common import statistics as stat
 import time
@@ -8,6 +8,7 @@ from keras.layers import Dense, Dropout, Activation, BatchNormalization
 from keras.regularizers import l2
 from common import load_csv
 from common import process_data_from_Yassine
+from keras.optimizers import Adam
 
 # turn off warning: SettingWithCopyWarning
 pd.set_option('chained_assignment', None)
@@ -31,21 +32,26 @@ print('y.shape: ', y.shape)
 
 x_train = StandardScaler().fit_transform(x_train.values)
 
+# x_train = MinMaxScaler(feature_range=(0, 1)).fit_transform(x_train.values)
+
+regular_alpha = 0.03
+neuron_units = 30
 model = Sequential()
-model.add(Dense(units=30, input_dim=x_train.shape[1], kernel_regularizer=l2(0.01)))
+model.add(Dense(units=neuron_units, input_dim=x_train.shape[1], kernel_regularizer=l2(regular_alpha)))
 model.add(BatchNormalization())
 model.add(Activation('relu'))
+# model.add(Dropout(0.4))
 # model.add(Dense(units=30, input_dim=9,
 #                 # kernel_initializer='uniform',
 #                 kernel_regularizer=l2(0.01),
 #                 activation='relu'))
-model.add(Dense(units=30, kernel_regularizer=l2(0.01)))
+model.add(Dense(units=neuron_units, kernel_regularizer=l2(regular_alpha)))
 model.add(BatchNormalization())
 model.add(Activation('relu'))
-model.add(Dense(units=30, kernel_regularizer=l2(0.01)))
+model.add(Dense(units=neuron_units, kernel_regularizer=l2(regular_alpha)))
 model.add(BatchNormalization())
 model.add(Activation('relu'))
-model.add(Dense(units=30, kernel_regularizer=l2(0.01)))
+model.add(Dense(units=neuron_units, kernel_regularizer=l2(regular_alpha)))
 model.add(BatchNormalization())
 model.add(Activation('relu'))
 model.add(Dropout(0.4))
@@ -53,13 +59,11 @@ model.add(Dense(units=1, activation='sigmoid'))
 print(model.summary())
 
 epochs = 30
-# from keras.optimizers import Adam
-# learning_rate = 0.001
-# adam = Adam(lr=learning_rate, decay=0.0001)
-# model.compile(loss='binary_crossentropy',
-#               optimizer=adam, metrics=['accuracy'])
+adam = Adam(lr=0.01, decay=0.001, beta_1=0.9, beta_2=0.9)
 model.compile(loss='binary_crossentropy',
-              optimizer='adam', metrics=['accuracy'])
+              optimizer=adam, metrics=['accuracy'])
+# model.compile(loss='binary_crossentropy',
+#               optimizer='adam', metrics=['accuracy'])
 start = time.time()
 train_history = model.fit(x=x_train,
                           y=y,
@@ -77,6 +81,6 @@ print(elapsed_train_time)
 model.save('mlp_train_model.h5')
 
 with open('mlp_train_info.txt', 'w') as file:
-    file.write(elapsed_train_time+'\n')
+    file.write(elapsed_train_time + '\n')
     file.write('train accuracy = {}, validation accuracy = {}\n'.format(train_acc, validation_acc))
     file.write('train loss = {}, validation loss = {}\n'.format(train_loss, validation_loss))

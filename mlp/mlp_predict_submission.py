@@ -10,12 +10,10 @@ pd.set_option('chained_assignment', None)
 process_data = process_data_from_Yassine.ProcessData()
 process_data.feature_engineering()
 test_data = process_data.get_test_data()
-y = test_data.Survived
 x_test = test_data.drop(['Survived'], axis=1)
 
 print('x_test.shape: ', x_test.shape)
 print('x_test.columns => \n', x_test.columns.values)
-print('y.shape: ', y.shape)
 
 x_test = StandardScaler().fit_transform(x_test.values)
 

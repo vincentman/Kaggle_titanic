@@ -3,7 +3,7 @@ import pandas as pd
 from common import load_csv
 from common import process_data_from_Yassine
 from keras.models import load_model
-from sklearn.preprocessing import StandardScaler, MinMaxScaler
+from sklearn.preprocessing import StandardScaler
 
 # turn off warning: SettingWithCopyWarning
 pd.set_option('chained_assignment', None)
@@ -12,7 +12,7 @@ pd.set_option('chained_assignment', None)
 # x_test = process_data.get_clean_data(x)
 # x_test = x_test.drop(['Survived'], axis=1)
 
-process_data = process_data_from_Yassine.ProcessData(train_data_ratio=0.9)
+process_data = process_data_from_Yassine.ProcessData(train_data_ratio=0.7)
 process_data.feature_engineering()
 validation_data = process_data.get_validation_data()
 y = validation_data.Survived
@@ -23,8 +23,6 @@ print('x_test.columns => \n', x_test.columns.values)
 print('y.shape: ', y.shape)
 
 x_test = StandardScaler().fit_transform(x_test.values)
-
-# x_test = MinMaxScaler(feature_range=(0, 1)).fit_transform(x_test.values)
 
 model = load_model('mlp_train_model.h5')
 scores = model.evaluate(x_test, y.values)
