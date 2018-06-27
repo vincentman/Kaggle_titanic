@@ -1,7 +1,7 @@
 import pandas as pd
 from common import process_data_from_Yassine
 from keras.models import load_model
-from sklearn.preprocessing import StandardScaler
+from sklearn.preprocessing import StandardScaler, MinMaxScaler
 import numpy as np
 
 # turn off warning: SettingWithCopyWarning
@@ -16,6 +16,8 @@ print('x_test.shape: ', x_test.shape)
 print('x_test.columns => \n', x_test.columns.values)
 
 x_test = StandardScaler().fit_transform(x_test.values)
+
+# x_test = MinMaxScaler(feature_range=(0, 1)).fit_transform(x_test.values)
 
 model = load_model('mlp_train_model.h5')
 
