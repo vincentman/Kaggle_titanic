@@ -1,5 +1,6 @@
 import pandas as pd
 import matplotlib.pyplot as plt
+import numpy as np
 
 
 def show_statistics(x):
@@ -140,17 +141,18 @@ def show_statistics(x):
 
 
 # used for MLP
-def show_train_history(train_history, epochs, train_acc, validation_acc, ylabel):
+def show_train_history(train_history, train_acc, validation_acc, ylabel):
     plt.plot(train_history.history[train_acc])
     plt.plot(train_history.history[validation_acc])
-    final_epoch_train_acc = train_history.history[train_acc][epochs - 1]
-    final_epoch_validation_acc = train_history.history[validation_acc][epochs - 1]
-    plt.text(train_history.epoch[epochs-1], final_epoch_train_acc, 'train = {:.3f}'.format(final_epoch_train_acc))
-    plt.text(train_history.epoch[epochs-1], final_epoch_validation_acc-0.01, 'valid = {:.3f}'.format(final_epoch_validation_acc))
+    epoch_num = len(train_history.epoch)
+    final_epoch_train_acc = train_history.history[train_acc][epoch_num - 1]
+    final_epoch_validation_acc = train_history.history[validation_acc][epoch_num - 1]
+    plt.text(epoch_num, final_epoch_train_acc, 'train = {:.3f}'.format(final_epoch_train_acc))
+    plt.text(epoch_num, final_epoch_validation_acc-0.01, 'valid = {:.3f}'.format(final_epoch_validation_acc))
     plt.title('Train History')
     plt.ylabel(ylabel)
     plt.xlabel('Epoch')
-    plt.xlim(xmax=epochs+1)
+    plt.xlim(xmax=epoch_num+1)
     plt.legend(['train', 'validation'], loc='upper left')
     fig = plt.gcf()
     fig.savefig('./mlp_train_{}.png'.format(ylabel), dpi=100)

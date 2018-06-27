@@ -1,3 +1,8 @@
+from numpy.random import seed
+seed(1)
+from tensorflow import set_random_seed
+set_random_seed(2)
+
 import pandas as pd
 from sklearn.preprocessing import StandardScaler, MinMaxScaler
 from common import process_data
@@ -9,6 +14,7 @@ from keras.regularizers import l2
 from common import load_csv
 from common import process_data_from_Yassine
 from keras.optimizers import Adam
+from keras.callbacks import EarlyStopping
 
 # turn off warning: SettingWithCopyWarning
 pd.set_option('chained_assignment', None)
@@ -34,27 +40,56 @@ x_train = StandardScaler().fit_transform(x_train.values)
 
 # x_train = MinMaxScaler(feature_range=(0, 1)).fit_transform(x_train.values)
 
-regular_alpha = 0.03
-neuron_units = 30
+# regularizer = l2(0.02)
+regularizer = None
+neuron_units = 110
 model = Sequential()
-model.add(Dense(units=neuron_units, input_dim=x_train.shape[1], kernel_regularizer=l2(regular_alpha)))
+# 11 layers
+model.add(Dense(units=neuron_units, input_dim=x_train.shape[1], kernel_regularizer=regularizer))
 model.add(BatchNormalization())
 model.add(Activation('relu'))
-# model.add(Dropout(0.4))
-# model.add(Dense(units=30, input_dim=9,
-#                 # kernel_initializer='uniform',
-#                 kernel_regularizer=l2(0.01),
-#                 activation='relu'))
-model.add(Dense(units=neuron_units, kernel_regularizer=l2(regular_alpha)))
+
+model.add(Dense(units=neuron_units, kernel_regularizer=regularizer))
 model.add(BatchNormalization())
 model.add(Activation('relu'))
-model.add(Dense(units=neuron_units, kernel_regularizer=l2(regular_alpha)))
+
+model.add(Dense(units=neuron_units, kernel_regularizer=regularizer))
 model.add(BatchNormalization())
 model.add(Activation('relu'))
-model.add(Dense(units=neuron_units, kernel_regularizer=l2(regular_alpha)))
+
+model.add(Dense(units=neuron_units, kernel_regularizer=regularizer))
 model.add(BatchNormalization())
 model.add(Activation('relu'))
-model.add(Dropout(0.4))
+
+model.add(Dense(units=neuron_units, kernel_regularizer=regularizer))
+model.add(BatchNormalization())
+model.add(Activation('relu'))
+
+model.add(Dense(units=neuron_units, kernel_regularizer=regularizer))
+model.add(BatchNormalization())
+model.add(Activation('relu'))
+
+model.add(Dense(units=neuron_units, kernel_regularizer=regularizer))
+model.add(BatchNormalization())
+model.add(Activation('relu'))
+
+model.add(Dense(units=neuron_units, kernel_regularizer=regularizer))
+model.add(BatchNormalization())
+model.add(Activation('relu'))
+
+model.add(Dense(units=neuron_units, kernel_regularizer=regularizer))
+model.add(BatchNormalization())
+model.add(Activation('relu'))
+
+model.add(Dense(units=neuron_units, kernel_regularizer=regularizer))
+model.add(BatchNormalization())
+model.add(Activation('relu'))
+
+model.add(Dense(units=neuron_units, kernel_regularizer=regularizer))
+model.add(BatchNormalization())
+model.add(Activation('relu'))
+
+model.add(Dropout(0.07))
 model.add(Dense(units=1, activation='sigmoid'))
 print(model.summary())
 
@@ -65,14 +100,18 @@ model.compile(loss='binary_crossentropy',
 # model.compile(loss='binary_crossentropy',
 #               optimizer='adam', metrics=['accuracy'])
 start = time.time()
+earlyStopping = EarlyStopping(monitor='val_loss', patience=3)
+callbacks = None
+# callbacks = [earlyStopping]
 train_history = model.fit(x=x_train,
                           y=y,
-                          validation_split=0.1,
+                          validation_split=0.2,
                           epochs=epochs,
                           shuffle=True,
-                          batch_size=20, verbose=2)
-train_acc, validation_acc = stat.show_train_history(train_history, epochs, 'acc', 'val_acc', 'accuracy')
-train_loss, validation_loss = stat.show_train_history(train_history, epochs, 'loss', 'val_loss', 'loss')
+                          batch_size=20, verbose=2,
+                          callbacks=callbacks)
+train_acc, validation_acc = stat.show_train_history(train_history, 'acc', 'val_acc', 'accuracy')
+train_loss, validation_loss = stat.show_train_history(train_history, 'loss', 'val_loss', 'loss')
 
 end = time.time()
 elapsed_train_time = 'elapsed training time: {} min, {} sec '.format(int((end - start) / 60), int((end - start) % 60))
