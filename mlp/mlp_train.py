@@ -1,7 +1,7 @@
-from numpy.random import seed
-seed(1)
-from tensorflow import set_random_seed
-set_random_seed(2)
+# from numpy.random import seed
+# seed(1)
+# from tensorflow import set_random_seed
+# set_random_seed(2)
 
 import pandas as pd
 from sklearn.preprocessing import StandardScaler, MinMaxScaler
@@ -42,54 +42,79 @@ x_train = StandardScaler().fit_transform(x_train.values)
 
 # regularizer = l2(0.02)
 regularizer = None
-neuron_units = 110
+neuron_units = 70
 model = Sequential()
-# 11 layers
-model.add(Dense(units=neuron_units, input_dim=x_train.shape[1], kernel_regularizer=regularizer))
+# model.add(Dense(units=40, input_dim=x_train.shape[1],
+#                 kernel_initializer='uniform',
+#                 activation='relu'))
+# model.add(Dense(units=30,
+#                 kernel_initializer='uniform',
+#                 activation='relu'))
+# model.add(Dense(units=1,
+#                 kernel_initializer='uniform',
+#                 activation='sigmoid'))
+# 11+5 layers
+model.add(Dense(units=50, input_dim=x_train.shape[1], kernel_regularizer=regularizer))
 model.add(BatchNormalization())
 model.add(Activation('relu'))
 
-model.add(Dense(units=neuron_units, kernel_regularizer=regularizer))
+model.add(Dense(units=50, kernel_regularizer=regularizer))
 model.add(BatchNormalization())
 model.add(Activation('relu'))
 
-model.add(Dense(units=neuron_units, kernel_regularizer=regularizer))
-model.add(BatchNormalization())
-model.add(Activation('relu'))
+# model.add(Dense(units=neuron_units, kernel_regularizer=regularizer))
+# model.add(BatchNormalization())
+# model.add(Activation('relu'))
+#
+# model.add(Dense(units=neuron_units, kernel_regularizer=regularizer))
+# model.add(BatchNormalization())
+# model.add(Activation('relu'))
+#
+# model.add(Dense(units=neuron_units, kernel_regularizer=regularizer))
+# model.add(BatchNormalization())
+# model.add(Activation('relu'))
+#
+# model.add(Dense(units=neuron_units, kernel_regularizer=regularizer))
+# model.add(BatchNormalization())
+# model.add(Activation('relu'))
+#
+# model.add(Dense(units=neuron_units, kernel_regularizer=regularizer))
+# model.add(BatchNormalization())
+# model.add(Activation('relu'))
+#
+# model.add(Dense(units=neuron_units, kernel_regularizer=regularizer))
+# model.add(BatchNormalization())
+# model.add(Activation('relu'))
+#
+# model.add(Dense(units=neuron_units, kernel_regularizer=regularizer))
+# model.add(BatchNormalization())
+# model.add(Activation('relu'))
+#
+# model.add(Dense(units=neuron_units, kernel_regularizer=regularizer))
+# model.add(BatchNormalization())
+# model.add(Activation('relu'))
+#
+# model.add(Dense(units=neuron_units, kernel_regularizer=regularizer))
+# model.add(BatchNormalization())
+# model.add(Activation('relu'))
+#
+# model.add(Dense(units=neuron_units, kernel_regularizer=regularizer))
+# model.add(BatchNormalization())
+# model.add(Activation('relu'))
+# model.add(Dense(units=neuron_units, kernel_regularizer=regularizer))
+# model.add(BatchNormalization())
+# model.add(Activation('relu'))
+# model.add(Dense(units=neuron_units, kernel_regularizer=regularizer))
+# model.add(BatchNormalization())
+# model.add(Activation('relu'))
+# model.add(Dense(units=neuron_units, kernel_regularizer=regularizer))
+# model.add(BatchNormalization())
+# model.add(Activation('relu'))
+# model.add(Dense(units=neuron_units, kernel_regularizer=regularizer))
+# model.add(BatchNormalization())
+# model.add(Activation('relu'))
 
-model.add(Dense(units=neuron_units, kernel_regularizer=regularizer))
-model.add(BatchNormalization())
-model.add(Activation('relu'))
-
-model.add(Dense(units=neuron_units, kernel_regularizer=regularizer))
-model.add(BatchNormalization())
-model.add(Activation('relu'))
-
-model.add(Dense(units=neuron_units, kernel_regularizer=regularizer))
-model.add(BatchNormalization())
-model.add(Activation('relu'))
-
-model.add(Dense(units=neuron_units, kernel_regularizer=regularizer))
-model.add(BatchNormalization())
-model.add(Activation('relu'))
-
-model.add(Dense(units=neuron_units, kernel_regularizer=regularizer))
-model.add(BatchNormalization())
-model.add(Activation('relu'))
-
-model.add(Dense(units=neuron_units, kernel_regularizer=regularizer))
-model.add(BatchNormalization())
-model.add(Activation('relu'))
-
-model.add(Dense(units=neuron_units, kernel_regularizer=regularizer))
-model.add(BatchNormalization())
-model.add(Activation('relu'))
-
-model.add(Dense(units=neuron_units, kernel_regularizer=regularizer))
-model.add(BatchNormalization())
-model.add(Activation('relu'))
-
-model.add(Dropout(0.07))
+model.add(Dropout(0.02))
 model.add(Dense(units=1, activation='sigmoid'))
 print(model.summary())
 
@@ -105,7 +130,7 @@ callbacks = None
 # callbacks = [earlyStopping]
 train_history = model.fit(x=x_train,
                           y=y,
-                          validation_split=0.2,
+                          validation_split=0.1,
                           epochs=epochs,
                           shuffle=True,
                           batch_size=20, verbose=2,
