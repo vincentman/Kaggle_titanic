@@ -35,7 +35,7 @@ y_train = y.values
 
 start = time.time()
 # param_range = [0.01, 0.1, 1.0, 10.0]
-param_C = [1, 10, 50, 100,200,300, 1000]
+param_C = [1, 10, 50, 100, 200, 300, 1000]
 param_gamma = [0.0001, 0.001, 0.01, 0.1, 1.0]
 # param_range = [0.0001, 0.001, 0.01, 0.1, 1.0, 10.0, 100.0, 1000.0]
 param_grid = {'C': param_C, 'gamma': param_gamma, 'kernel': ['rbf']}
@@ -46,14 +46,13 @@ gs = GridSearchCV(estimator=svm,
                   param_grid=param_grid,
                   scoring='accuracy',
                   cv=kfold)
-                  # cv=5)
+# cv=5)
 gs.fit(x_train, y_train)
 end = time.time()
 elapsed_train_time = 'SVM, elapsed training time: {} min, {} sec '.format(int((end - start) / 60),
                                                                           int((end - start) % 60))
 print(elapsed_train_time)
 best_clf = gs.best_estimator_
-best_clf.fit(x_train, y_train)
 print('--------------------------------------------')
 print(best_clf)
 print('--------------------------------------------')
