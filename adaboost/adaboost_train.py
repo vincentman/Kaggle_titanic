@@ -1,5 +1,4 @@
 import time
-from common import process_data
 from common import process_data_from_Yassine
 import pandas as pd
 from sklearn.externals import joblib
@@ -10,10 +9,6 @@ from sklearn.model_selection import StratifiedKFold
 
 # turn off warning: SettingWithCopyWarning
 pd.set_option('chained_assignment', None)
-
-# x, y = load_csv.load_data(True)
-# x_train = process_data.get_clean_data(x)
-# x_train = x_train.drop(['Survived'], axis=1)
 
 process_data = process_data_from_Yassine.ProcessData()
 process_data.feature_engineering()

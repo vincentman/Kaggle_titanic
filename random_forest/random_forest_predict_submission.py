@@ -1,4 +1,3 @@
-from common import process_data
 from common import process_train_test_data
 from common import process_data_from_Yassine
 import pandas as pd
@@ -7,9 +6,6 @@ import numpy as np
 
 # turn off warning: SettingWithCopyWarning
 pd.set_option('chained_assignment', None)
-
-# x = pd.read_csv('../test.csv').iloc[:, :]
-# x_test = process_data.get_clean_data(x)
 
 # all_data = process_train_test_data.get_clean_data()
 # test_data = process_train_test_data.get_test_data(all_data)

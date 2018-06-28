@@ -5,7 +5,6 @@
 
 import pandas as pd
 from sklearn.preprocessing import StandardScaler, MinMaxScaler
-from common import process_data
 from common import statistics as stat
 import time
 from keras.models import Sequential
@@ -18,10 +17,6 @@ from keras.callbacks import EarlyStopping
 
 # turn off warning: SettingWithCopyWarning
 pd.set_option('chained_assignment', None)
-
-# x, y = load_csv.load_data(True)
-# x_train = process_data.get_clean_data(x)
-# x_train = x_train.drop(['Survived'], axis=1)
 
 process_data = process_data_from_Yassine.ProcessData(train_data_ratio=0.9)
 process_data.feature_engineering()

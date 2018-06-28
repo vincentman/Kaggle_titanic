@@ -1,5 +1,4 @@
 import time
-from common import process_data
 from common import process_train_test_data
 from common import process_data_from_Yassine
 import pandas as pd
@@ -13,10 +12,6 @@ from sklearn.model_selection import GridSearchCV
 
 # turn off warning: SettingWithCopyWarning
 pd.set_option('chained_assignment', None)
-
-# x, y = load_csv.load_data(True)
-# x_train = process_data.get_clean_data(x)
-# x_train = x_train.drop(['Survived'], axis=1)
 
 # all_data = process_train_test_data.get_clean_data()
 # train_data = process_train_test_data.get_train_data(all_data)

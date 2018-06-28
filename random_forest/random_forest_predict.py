@@ -1,4 +1,3 @@
-from common import process_data
 from common import process_train_test_data
 from common import process_data_from_Yassine
 import pandas as pd
@@ -7,10 +6,6 @@ from common import load_csv
 
 # turn off warning: SettingWithCopyWarning
 pd.set_option('chained_assignment', None)
-
-# x, y = load_csv.load_data(False)
-# x_test = process_data.get_clean_data(x)
-# x_test = x_test.drop(['Survived'], axis=1)
 
 # all_data = process_train_test_data.get_clean_data()
 # validation_data = process_train_test_data.get_validation_data(all_data)
