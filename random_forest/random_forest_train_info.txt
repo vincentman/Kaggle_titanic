@@ -1,3 +1,11 @@
-Random Forest, elapsed training time: 4 min, 52 sec 
-Random Forest, train best param: {'max_depth': None, 'max_features': 10, 'min_samples_leaf': 3, 'min_samples_split': 10, 'n_estimators': 300}
-Random Forest, train best score: 0.8379052369077307
+Random Forest, elapsed training time: 7 min, 7 sec 
+--------------------------------------------
+RandomForestClassifier(bootstrap=False, class_weight=None, criterion='gini',
+            max_depth=None, max_features=10, max_leaf_nodes=None,
+            min_impurity_decrease=0.0, min_impurity_split=None,
+            min_samples_leaf=3, min_samples_split=10,
+            min_weight_fraction_leaf=0.0, n_estimators=1000, n_jobs=-1,
+            oob_score=False, random_state=0, verbose=0, warm_start=False)
+--------------------------------------------
+Random Forest, train best param: {'max_depth': None, 'max_features': 10, 'min_samples_leaf': 3, 'min_samples_split': 10, 'n_estimators': 1000}
+Random Forest, train best score: 0.8391521197007481

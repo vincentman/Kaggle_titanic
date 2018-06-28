@@ -35,12 +35,13 @@ clf = RandomForestClassifier(n_estimators=1000, random_state=0, n_jobs=-1, boots
 
 start = time.time()
 kfold = StratifiedKFold(n_splits=10)
-# param_max_depth = [4, 6, 8]
+# param_max_depth = [2, 4, 6, 8, 10, None]
 param_max_depth = [None]
 param_min_samples_split = [2, 3, 10]
 param_min_samples_leaf = [1, 3, 10]
 param_max_features = [1, 3, 10]
-param_n_estimators = [100, 300]
+param_n_estimators = [1100]
+# param_n_estimators = [100, 300]
 param_grid = {"max_depth": param_max_depth,
               "max_features": param_max_features,
               "min_samples_split": param_min_samples_split,
